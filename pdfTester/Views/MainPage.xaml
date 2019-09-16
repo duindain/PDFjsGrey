@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="pdfTester.MainPage">
+
+    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10" Spacing="10">
+
+        <Label FontSize="Medium" Text="This is an example project for demoing an issue with rendering PDF documents using PDF.js in Android, all methods download a PDF on the first try then use the local copy opened in PDF.js, subsequent tries use the local copy and do not download the PDF again." HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+
+        <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+        <Label Text="Method 1: Enter a URL to a remote source for a pdf, it must be using HTTPS protocol." HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Url" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+            <Entry Text="{Binding PDFUrl}" Placeholder="Enter a remote PDF to download" HorizontalOptions="CenterAndExpand" MinimumWidthRequest="150" VerticalOptions="Center"/>
+            <Button Clicked="Handle_OpenPDFClick" Text="Download" HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+
+        <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+        <Label Text="Method 2: Select a PDF from the picker to download and open it." HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+
+        <Picker ItemsSource="{Binding PDFs}" ItemDisplayBinding="{Binding FileName}" Title="Tap to select a pdf from the picker list" HorizontalOptions="FillAndExpand" SelectedIndexChanged="Handle_PDFSelectedIndexChanged"/>
+
+        <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+        <Label Text="Method 3: Tap the button to have a random PDF downloaded and opened from the picker list." HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+
+        <Button Clicked="Handle_RandomPDFClick" Text="Open random PDF" HorizontalOptions="CenterAndExpand"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Last Opened PDF:" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+            <Label Text="{Binding LastOpenedPDF}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
