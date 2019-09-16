@@ -39,6 +39,7 @@ namespace pdfTester
                 new PDFSelectItem {FilePath = "https://www.adobe.com/support/products/enterprise/knowledgecenter/media/c4611_sample_explain.pdf", FileName = "c4611_sample_explain" },
                 new PDFSelectItem {FilePath = "https://www.orimi.com/pdf-test.pdf", FileName = "orimi pdf-test" },
                 new PDFSelectItem {FilePath = "https://gahp.net/wp-content/uploads/2017/09/sample.pdf", FileName="gahp example pdf"},
+                new PDFSelectItem {FilePath = "https://xamarin.azureedge.net/developer/xamarin-forms-book/BookPreview2-Ch18-Rel0417.pdf", FileName="BookPreview2-Ch18-Rel0417"},
             });
         }
 
