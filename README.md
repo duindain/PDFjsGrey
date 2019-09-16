@@ -16,4 +16,5 @@ I am currently using;
 I have tried the v2.2.228 PDF.js version as well it seemed to render slower on each load and did not solve the issue unfortunately
 
 Chrome remote debugging shows only one line each time for the MVVM Book Preview pdf document, the line doesnt change whether the document is rendered in grey text or normal
-PDF a542b7ae69a71147a88b29253c4b493c [1.5 Microsoft® Word 2013 / Microsoft® Word 2013] (PDF.js: 2.1.266)
+
+`PDF a542b7ae69a71147a88b29253c4b493c [1.5 Microsoft® Word 2013 / Microsoft® Word 2013] (PDF.js: 2.1.266)`
