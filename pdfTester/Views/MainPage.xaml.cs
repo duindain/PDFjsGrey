@@ -29,17 +29,20 @@ namespace pdfTester
 
         void Handle_PDFSelectedIndexChanged(object sender, System.EventArgs e)
         {
-            var selectedIndex = (sender as Picker)?.SelectedIndex;
-            if (selectedIndex >= 0)
+            var picker = sender as Picker;
+            if(picker != null)
             {
-                var pdf = VM.PDFs[selectedIndex.Value];
-                if (pdf != null)
+                var pdf = picker.SelectedItem as PDFSelectItem;
+                if(pdf != null)
                 {
                     VM.PDFUrl = pdf.FilePath;
                     VM.LastOpenedPDF = pdf.FileName;
                     Handle_OpenPDFClick(null, null);
+                    //Clear the index so we can select the same item again in the list next time
+                    picker.SelectedIndex = -1;
                 }
-            }                    
+            }
+                             
         }
     }
 }
