@@ -9,6 +9,13 @@ namespace pdfTester
 {
     public class PDFjsPageVM : BaseViewModel
     {
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set => SetProperty(ref _title, value);
+        }
+
         private string _pdfSource;
         public string PDFSource
         {
@@ -24,7 +31,9 @@ namespace pdfTester
 
             var dependency = DependencyService.Get<ILocalFileProvider>();
 
-            var fileName = Path.GetFileName(url);
+            Title = Path.GetFileNameWithoutExtension(url);
+
+            var fileName = Path.GetFileName(url);            
             localPath = Path.Combine(_localFilePath, fileName);
 
             if (File.Exists(localPath) == false)
