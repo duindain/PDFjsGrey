@@ -44,6 +44,7 @@ namespace pdfTester
                 {
                     try
                     {
+                        httpClient.Timeout = new TimeSpan(0,0,10);
                         var pdfStream = await httpClient.GetStreamAsync(url);
                         System.Diagnostics.Debug.WriteLine($"PDFjsPageVM.ctor: Downloaded PDF file");
 
@@ -60,6 +61,10 @@ namespace pdfTester
                     {
                         System.Diagnostics.Debug.WriteLine($"PDFjsPageVM.ctor: Certificate error? only SSL sites are supported without additional config {ex.Message}");
                     }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"PDFjsPageVM.ctor: Http error, network issue? {ex.Message}");
+                    }                    
                 }
             }
             else
