@@ -30,6 +30,7 @@ namespace pdfTester
 
         public MainPageVM()
         {
+            //Example PDF's from random websites
             PDFs = new ObservableCollection<PDFSelectItem>(new List<PDFSelectItem>
             {
                 new PDFSelectItem {FilePath = "https://media.wuerth.com/stmedia/shop/catalogpages/LANG_it/1637048.pdf", FileName = "wuerth example pdf" },
@@ -43,6 +44,10 @@ namespace pdfTester
             });
         }
 
+        /// <summary>
+        /// Select a random PDF document from the list
+        /// </summary>
+        /// <returns></returns>
         public string RandomPDF()
         {
             var pdfFilePath = string.Empty;

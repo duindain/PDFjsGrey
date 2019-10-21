@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
 namespace pdfTester
 {
@@ -12,7 +11,6 @@ namespace pdfTester
 
         public virtual void OnDisappearing() { }
         public virtual void OnAppearing() { }
-        public virtual async Task Refresh() { }
 
         protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName]string propertyName = "", Action onChanged = null)
         {
