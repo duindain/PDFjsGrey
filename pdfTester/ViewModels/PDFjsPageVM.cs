@@ -61,7 +61,7 @@ namespace pdfTester
                              if (grantedPermissions)
                              {
                                  await SaveFileToDisk(pdfStream, localPath);
-                                 OpenPdf(localPath, url);
+                                 OpenPdf(localPath);
                              }
                          });
                     }
@@ -78,7 +78,7 @@ namespace pdfTester
             else
             {
                 System.Diagnostics.Debug.WriteLine($"PDFjsPageVM.ctor: File exists locally {localPath}");
-                OpenPdf(localPath, url);
+                OpenPdf(localPath);
             }
         }
 
@@ -87,7 +87,7 @@ namespace pdfTester
         /// </summary>
         /// <param name="localPath">android file to open with pdfjs</param>
         /// <param name="url">iOS url to open using native webview</param>
-        private void OpenPdf(string localPath, string url)
+        private void OpenPdf(string localPath)
         {
             if (Device.RuntimePlatform == Device.Android)
             {
@@ -96,8 +96,8 @@ namespace pdfTester
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine($"PDFjsPageVM.OpenPdf: Opening PDF {url}");
-                PDFSource = url;
+                System.Diagnostics.Debug.WriteLine($"PDFjsPageVM.OpenPdf: Opening PDF {localPath}");
+                PDFSource = localPath;
             }
         }
 
